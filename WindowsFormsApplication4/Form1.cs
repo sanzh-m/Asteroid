@@ -165,7 +165,7 @@ namespace WindowsFormsApplication4
             {
                 for (int j=0; j<bullets.bullets.Count; ++j)
                 {
-                    if (Math.Pow(bullets.bullets[j].X - asteroids.stones[i].X-5 , 2) + Math.Pow(bullets.bullets[j].Y - asteroids.stones[i].Y-5, 2) < 25) { a.Add(j); b.Add(i); }
+                    if (Math.Pow(bullets.bullets[j].X - asteroids.stones[i].X-5 , 2) + Math.Pow(bullets.bullets[j].Y - asteroids.stones[i].Y-5, 2) < 100) { a.Add(j); b.Add(i); }
                 }
             }
             for (int i=0; i<a.Count; ++i)
@@ -181,7 +181,13 @@ namespace WindowsFormsApplication4
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            asteroids.createStone();
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            int k = rnd.Next() % 7;
+            for (int i = 0; i< k; ++i)
+            {
+                asteroids.createStone();
+            }
+            
         }
     }
 }
